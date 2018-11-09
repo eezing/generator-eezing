@@ -1,16 +1,8 @@
 'use strict';
 
 module.exports = () => ({
-  main: 'src/index.js',
-  scripts: {
-    test: 'npm run test:jest && npm run test:lint',
-    'test:watch': 'jest --watch',
-    'test:jest': 'jest --coverage',
-    'test:lint': 'eslint src --ext .js --ext .mjs'
-  },
-  jest: {
-    setupFiles: ['<rootDir>/jest.setup.js'],
-    testPathIgnorePatterns: ['<rootDir>/.next/', '<rootDir>/node_modules/']
+  prettier: {
+    jsxBracketSameLine: true
   },
   eslintConfig: {
     env: {
@@ -26,6 +18,10 @@ module.exports = () => ({
       'react/display-name': 0
     }
   },
+  jest: {
+    setupFiles: ['<rootDir>/jest.setup.js'],
+    testPathIgnorePatterns: ['<rootDir>/.next/', '<rootDir>/node_modules/']
+  },
   babel: {
     env: {
       development: {
@@ -38,8 +34,5 @@ module.exports = () => ({
         presets: [['next/babel', { 'preset-env': { modules: 'commonjs' } }]]
       }
     }
-  },
-  prettier: {
-    jsxBracketSameLine: true
   }
 });

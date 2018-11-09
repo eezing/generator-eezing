@@ -2,11 +2,11 @@
 
 module.exports = ({ name, description, author }) => ({
   name,
-  version: '1.0.0',
   description,
-  keywords: [],
+  version: '0.0.1',
   author,
   license: 'ISC',
+  keywords: [],
   main: 'src/index.js',
   scripts: {
     start: 'node -r dotenv/config src/index.js',
@@ -19,8 +19,15 @@ module.exports = ({ name, description, author }) => ({
   },
   dependencies: {},
   devDependencies: {},
-  jest: {
-    testURL: 'http://localhost/'
+  husky: {
+    hooks: {
+      'pre-commit': 'npm run test:lint'
+    }
+  },
+  prettier: {
+    semi: true,
+    bracketSpacing: true,
+    singleQuote: true
   },
   eslintConfig: {
     env: {
@@ -36,14 +43,7 @@ module.exports = ({ name, description, author }) => ({
       'no-console': 2
     }
   },
-  prettier: {
-    semi: true,
-    bracketSpacing: true,
-    singleQuote: true
-  },
-  husky: {
-    hooks: {
-      'pre-commit': 'npm run test:lint'
-    }
+  jest: {
+    testURL: 'http://localhost/'
   }
 });
