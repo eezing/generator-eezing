@@ -1,57 +1,18 @@
+'use strict';
+
 const Generator = require('yeoman-generator');
 const userActions = require('yeoman-generator/lib/actions/user');
+const getPackageFile = require('./assets/package-file');
 
 module.exports = class extends Generator {
   packageFile() {
-    const pkgJson = {
+    const packageFile = getPackageFile({
       name: this.determineAppname(),
-      version: '1.0.0',
       description: `${this.determineAppname()} project`,
-      keywords: [],
-      author: userActions.git.name(),
-      license: 'ISC',
-      main: 'src/index.js',
-      scripts: {
-        start: 'node -r dotenv/config src/index.js',
-        dev: 'NODE_ENV=development nodemon -r dotenv/config src/index.js',
-        pretty: "prettier --write '**/*.js'",
-        test: 'npm run test:jest && npm run test:lint',
-        'test:watch': 'jest --watch',
-        'test:jest': 'jest --coverage',
-        'test:lint': 'eslint src --ext .js --ext .mjs'
-      },
-      dependencies: {},
-      devDependencies: {},
-      jest: {
-        testURL: 'http://localhost/'
-      },
-      eslintConfig: {
-        env: {
-          commonjs: true,
-          es6: true,
-          node: true,
-          jest: true
-        },
-        parser: 'babel-eslint',
-        plugins: ['prettier'],
-        extends: ['eslint:recommended', 'prettier'],
-        rules: {
-          'no-console': 2
-        }
-      },
-      prettier: {
-        semi: true,
-        bracketSpacing: true,
-        singleQuote: true
-      },
-      husky: {
-        hooks: {
-          'pre-commit': 'npm run test:lint'
-        }
-      }
-    };
+      author: userActions.git.name()
+    });
 
-    this.fs.extendJSON(this.destinationPath('package.json'), pkgJson);
+    this.fs.extendJSON(this.destinationPath('package.json'), packageFile);
   }
 
   vscodeFiles() {
