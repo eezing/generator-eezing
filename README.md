@@ -1,5 +1,7 @@
 # generator-eezing
 
+Node.js project templates (yeoman)
+
 ## Get Started
 
 1. Clone this repository
