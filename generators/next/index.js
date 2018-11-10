@@ -2,17 +2,21 @@
 
 const Generator = require('yeoman-generator');
 const getPackageFile = require('./assets/package-file');
+const packageExtend = require('../../extensions/package-extend');
 
 module.exports = class extends Generator {
+  constructor(...args) {
+    super(...args);
+    this.packageExtend = packageExtend.bind(this);
+  }
+
   initializing() {
     this.composeWith(require.resolve('../app'));
   }
 
-  packageFile() {
-    this.fs.extendJSON(this.destinationPath('package.json'), getPackageFile());
-  }
+  writing() {
+    this.packageExtend(getPackageFile());
 
-  srcFiles() {
     this.fs.copy(
       this.templatePath('jest.setup.js'),
       this.destinationPath('jest.setup.js')
