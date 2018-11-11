@@ -5,8 +5,6 @@ const deepExtend = require('deep-extend');
 module.exports = function(pkgA) {
   const pkgB = this.fs.readJSON(this.destinationPath('package.json')) || {};
 
-  console.log(orderBy(deepExtend(pkgB, pkgA), getOrder()).eslintConfig);
-
   this.fs.writeJSON(
     this.destinationPath('package.json'),
     orderBy(deepExtend(pkgB, pkgA), getOrder())
