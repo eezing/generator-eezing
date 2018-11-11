@@ -18,12 +18,13 @@ function getOrder() {
     'version',
     'author',
     'license',
-    'main',
     'keywords',
+    'main',
     'scripts',
     'husky',
     'prettier',
     'eslintConfig',
+    'eslintIgnore',
     'babel',
     'jest'
   ];
