@@ -1,6 +1,11 @@
 'use strict';
 
 module.exports = () => ({
+  scripts: {
+    start: 'next start',
+    build: 'next build',
+    dev: 'next'
+  },
   prettier: {
     jsxBracketSameLine: true
   },

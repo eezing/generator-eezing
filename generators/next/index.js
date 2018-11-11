@@ -8,10 +8,13 @@ module.exports = class extends Generator {
   constructor(...args) {
     super(...args);
     this.packageExtend = packageExtend.bind(this);
+    this.option('install', { type: Boolean, default: true });
   }
 
   initializing() {
-    this.composeWith(require.resolve('../app'));
+    this.composeWith(require.resolve('../app'), {
+      install: this.options.install
+    });
   }
 
   writing() {
