@@ -20,19 +20,8 @@ module.exports = class extends Generator {
   writing() {
     this.packageExtend(getPackageFile());
 
-    this.fs.copy(
-      this.templatePath('.vscode/launch.json'),
-      this.destinationPath('.vscode/launch.json')
-    );
+    this.fs.copy(this.templatePath('.vscode'), this.destinationPath('.vscode'));
 
-    this.fs.copy(
-      this.templatePath('src/index.js'),
-      this.destinationPath('src/index.js')
-    );
-
-    this.fs.copy(
-      this.templatePath('src/__tests__/index-test.js'),
-      this.destinationPath('src/__tests__/index-test.js')
-    );
+    this.fs.copy(this.templatePath('src'), this.destinationPath('src'));
   }
 };

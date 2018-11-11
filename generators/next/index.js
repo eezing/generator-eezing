@@ -20,6 +20,15 @@ module.exports = class extends Generator {
   writing() {
     this.packageExtend(getPackageFile());
 
+    this.prependOnceListener;
+
+    this.fs.copy(
+      this.templatePath('components'),
+      this.destinationPath('components')
+    );
+
+    this.fs.copy(this.templatePath('pages'), this.destinationPath('pages'));
+
     this.fs.copy(
       this.templatePath('jest.setup.js'),
       this.destinationPath('jest.setup.js')

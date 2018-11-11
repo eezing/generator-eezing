@@ -21,15 +21,7 @@ module.exports = class extends Generator {
 
     this.packageExtend(newPkg);
 
-    this.fs.copy(
-      this.templatePath('.vscode/extensions.json'),
-      this.destinationPath('.vscode/extensions.json')
-    );
-
-    this.fs.copy(
-      this.templatePath('.vscode/settings.json'),
-      this.destinationPath('.vscode/settings.json')
-    );
+    this.fs.copy(this.templatePath('.vscode'), this.destinationPath('.vscode'));
 
     this.fs.copy(this.templatePath('.env'), this.destinationPath('.env'));
 
