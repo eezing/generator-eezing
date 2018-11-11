@@ -1,7 +1,7 @@
 {
   "name": "generator-eezing",
-  "version": "0.1.0",
   "description": "eezing's node templates",
+  "version": "0.1.0",
   "author": "Eric Zingeler",
   "license": "ISC",
   "keywords": [
