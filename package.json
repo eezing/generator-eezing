@@ -2,26 +2,27 @@
   "name": "generator-eezing",
   "version": "0.1.0",
   "description": "eezing's node templates",
-  "files": [
-    "generators"
-  ],
+  "author": "Eric Zingeler",
+  "license": "ISC",
   "keywords": [
     "yeoman-generator"
   ],
+  "files": [
+    "generators"
+  ],
   "scripts": {
-    "pretty": "prettier --write '**/*.js' --write"
+    "pretty": "prettier --write '**/*.js' --write",
+    "test:lint": "eslint ./ --ext .js"
   },
-  "dependencies": {
-    "deep-extend": "^0.6.0",
-    "yeoman-generator": "^3.1.1"
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run test:lint"
+    }
   },
-  "devDependencies": {
-    "babel-eslint": "^10.0.1",
-    "eslint": "^5.8.0",
-    "eslint-config-prettier": "^3.1.0",
-    "eslint-plugin-prettier": "^3.0.0",
-    "husky": "^1.1.3",
-    "prettier": "^1.15.1"
+  "prettier": {
+    "semi": true,
+    "bracketSpacing": true,
+    "singleQuote": true
   },
   "eslintConfig": {
     "env": {
@@ -42,14 +43,16 @@
       "no-console": 2
     }
   },
-  "prettier": {
-    "semi": true,
-    "bracketSpacing": true,
-    "singleQuote": true
+  "dependencies": {
+    "deep-extend": "^0.6.0",
+    "yeoman-generator": "^3.1.1"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run test:lint"
-    }
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.8.0",
+    "eslint-config-prettier": "^3.1.0",
+    "eslint-plugin-prettier": "^3.0.0",
+    "husky": "^1.1.3",
+    "prettier": "^1.15.1"
   }
 }
