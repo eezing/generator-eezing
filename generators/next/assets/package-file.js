@@ -3,8 +3,8 @@
 module.exports = () => ({
   scripts: {
     start: 'next start',
-    build: 'next build',
-    dev: 'next'
+    dev: 'next',
+    build: 'next build'
   },
   prettier: {
     jsxBracketSameLine: true

@@ -12,9 +12,8 @@ module.exports = class extends Generator {
   }
 
   initializing() {
-    this.composeWith(require.resolve('../app'), {
-      install: this.options.install,
-      src: false
+    this.composeWith(require.resolve('../core'), {
+      install: this.options.install
     });
   }
 
