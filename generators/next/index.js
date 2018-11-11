@@ -20,8 +20,6 @@ module.exports = class extends Generator {
   writing() {
     this.packageExtend(getPackageFile());
 
-    this.prependOnceListener;
-
     this.fs.copy(
       this.templatePath('components'),
       this.destinationPath('components')
@@ -32,6 +30,27 @@ module.exports = class extends Generator {
     this.fs.copy(
       this.templatePath('jest.setup.js'),
       this.destinationPath('jest.setup.js')
+    );
+  }
+
+  installing() {
+    if (this.options['install'] === false) return;
+
+    this.npmInstall(['next@7', 'react@16', 'react-dom@16'], {
+      save: true
+    });
+
+    this.npmInstall(
+      [
+        'enzyme',
+        'enzyme-adapter-react-16',
+        'react-test-renderer',
+        'babel-core@7.0.0-bridge.0',
+        'eslint-plugin-react'
+      ],
+      {
+        'save-dev': true
+      }
     );
   }
 };

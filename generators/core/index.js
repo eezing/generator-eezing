@@ -12,7 +12,7 @@ module.exports = class extends Generator {
     this.option('install', { type: Boolean, default: true });
   }
 
-  writing() {
+  initializing() {
     const newPkg = getPackageFile({
       name: this.determineAppname(),
       description: `${this.determineAppname()} project`,
@@ -20,7 +20,9 @@ module.exports = class extends Generator {
     });
 
     this.packageExtend(newPkg);
+  }
 
+  writing() {
     this.fs.copy(this.templatePath('.vscode'), this.destinationPath('.vscode'));
 
     this.fs.copy(this.templatePath('.env'), this.destinationPath('.env'));

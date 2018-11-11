@@ -6,22 +6,26 @@ module.exports = () => ({
     dev: 'next',
     build: 'next build'
   },
-  prettier: {
-    jsxBracketSameLine: true
-  },
   eslintConfig: {
     env: {
-      browser: true
+      browser: true,
+      commonjs: true,
+      es6: true,
+      node: true,
+      jest: true
     },
-    extends: ['plugin:react/recommended'],
+    extends: ['eslint:recommended', 'plugin:react/recommended', 'prettier'],
     settings: {
       react: {
         version: '16.0'
       }
     },
     rules: {
-      'react/display-name': 0
-    }
+      'react/display-name': 0,
+      'no-console': 2
+    },
+    parser: 'babel-eslint',
+    plugins: ['prettier']
   },
   jest: {
     setupFiles: ['<rootDir>/jest.setup.js'],
