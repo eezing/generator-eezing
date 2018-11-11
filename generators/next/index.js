@@ -13,7 +13,8 @@ module.exports = class extends Generator {
 
   initializing() {
     this.composeWith(require.resolve('../app'), {
-      install: this.options.install
+      install: this.options.install,
+      src: false
     });
   }
 

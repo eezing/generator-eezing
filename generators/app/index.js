@@ -10,6 +10,7 @@ module.exports = class extends Generator {
     super(...args);
     this.packageExtend = packageExtend.bind(this);
     this.option('install', { type: Boolean, default: true });
+    this.option('src', { type: Boolean, default: true });
   }
 
   writing() {
@@ -53,15 +54,17 @@ module.exports = class extends Generator {
       this.destinationPath('.prettierignore')
     );
 
-    this.fs.copy(
-      this.templatePath('src/index.js'),
-      this.destinationPath('src/index.js')
-    );
+    if (this.options.src === true) {
+      this.fs.copy(
+        this.templatePath('src/index.js'),
+        this.destinationPath('src/index.js')
+      );
 
-    this.fs.copy(
-      this.templatePath('src/__tests__/index-test.js'),
-      this.destinationPath('src/__tests__/index-test.js')
-    );
+      this.fs.copy(
+        this.templatePath('src/__tests__/index-test.js'),
+        this.destinationPath('src/__tests__/index-test.js')
+      );
+    }
 
     this.fs.copyTpl(
       this.templatePath('README.md'),
