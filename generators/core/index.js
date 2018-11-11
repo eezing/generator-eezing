@@ -34,11 +34,6 @@ module.exports = class extends Generator {
     this.fs.copy(this.templatePath('.env'), this.destinationPath('.env'));
 
     this.fs.copy(
-      this.templatePath('.eslintignore'),
-      this.destinationPath('.eslintignore')
-    );
-
-    this.fs.copy(
       this.templatePath('.gitignore'),
       this.destinationPath('.gitignore')
     );

@@ -12,10 +12,10 @@ module.exports = ({ name, description, author }) => ({
     start: 'node -r dotenv/config src/index.js',
     dev: 'NODE_ENV=development nodemon -r dotenv/config src/index.js',
     pretty: "prettier --write '**/*.js'",
-    test: 'npm run test:jest && npm run test:lint',
+    test: ' npm run test:lint && npm run test:jest',
     'test:watch': 'jest --watch',
     'test:jest': 'jest --coverage',
-    'test:lint': 'eslint src --ext .js --ext .mjs'
+    'test:lint': 'eslint ./ --ext .js'
   },
   dependencies: {},
   devDependencies: {},
@@ -43,6 +43,7 @@ module.exports = ({ name, description, author }) => ({
       'no-console': 2
     }
   },
+  eslintIgnore: ['coverage'],
   jest: {
     testURL: 'http://localhost/'
   }
