@@ -55,6 +55,9 @@
   },
   "dependencies": {
     "deep-extend": "^0.6.0",
+    "lodash.kebabcase": "^4.1.1",
+    "lodash.snakecase": "^4.1.1",
+    "lodash.startcase": "^4.4.0",
     "yeoman-generator": "^3.1.1"
   },
   "devDependencies": {

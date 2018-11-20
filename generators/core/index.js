@@ -2,6 +2,8 @@
 
 const Generator = require('yeoman-generator');
 const userActions = require('yeoman-generator/lib/actions/user');
+const kebabCase = require('lodash.kebabcase');
+const startCase = require('lodash.startcase');
 const getPackageFile = require('./assets/package-file');
 const packageExtend = require('../../extensions/package-extend');
 
@@ -14,7 +16,7 @@ module.exports = class extends Generator {
 
   initializing() {
     const newPkg = getPackageFile({
-      name: this.determineAppname(),
+      name: kebabCase(this.determineAppname()),
       description: `${this.determineAppname()} project`,
       author: userActions.git.name()
     });
@@ -40,7 +42,7 @@ module.exports = class extends Generator {
     this.fs.copyTpl(
       this.templatePath('README.md'),
       this.destinationPath('README.md'),
-      { title: this.determineAppname() }
+      { title: startCase(this.determineAppname()) }
     );
   }
 
