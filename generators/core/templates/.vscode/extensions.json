@@ -3,6 +3,7 @@
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
     "peterjausovec.vscode-docker",
-    "mikestead.dotenv"
+    "mikestead.dotenv",
+    "kumar-harsh.graphql-for-vscode"
   ]
 }
