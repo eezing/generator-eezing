@@ -53,6 +53,10 @@
       "prettier"
     ]
   },
+  "eslintIgnore": [
+    "coverage",
+    "*.min.js"
+  ],
   "dependencies": {
     "deep-extend": "^0.6.0",
     "lodash.kebabcase": "^4.1.1",

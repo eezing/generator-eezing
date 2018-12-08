@@ -38,7 +38,7 @@ module.exports = ({ name, description, author }) => ({
       'no-console': 2
     }
   },
-  eslintIgnore: ['coverage'],
+  eslintIgnore: ['coverage', '*.min.js'],
   jest: {
     testURL: 'http://localhost/'
   },
