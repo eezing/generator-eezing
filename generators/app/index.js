@@ -18,8 +18,6 @@ module.exports = class extends Generator {
   writing() {
     this.packageExtend(getPackageFile());
 
-    this.fs.copy(this.templatePath('.vscode'), this.destinationPath('.vscode'));
-
     this.fs.copy(this.templatePath('src'), this.destinationPath('src'));
 
     this.fs.copy(

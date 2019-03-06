@@ -1,7 +1,3 @@
-
-
-if (process.env.USE_DOTENV === 'true') require('dotenv').config();
-
 const PORT = process.env.PORT;
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -43,5 +39,5 @@ app.post('/graphql', async (req, res) => {
 const listener = app.listen(PORT, err => {
   if (err) throw err;
   //eslint-disable-next-line
-  console.log('listening, port: %d', listener.address().port);
+  console.log(`> Ready on http://localhost:${listener.address().port}`);
 });
