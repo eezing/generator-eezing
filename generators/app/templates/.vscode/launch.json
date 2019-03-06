@@ -6,21 +6,12 @@
       "request": "launch",
       "name": "node",
       "runtimeExecutable": "node",
-      "program": "${workspaceFolder}/src/index.js",
+      "program": "${workspaceFolder}/debug.js",
       "env": {
-        "USE_DOTENV": "true",
         "NODE_ENV": "development"
       },
       "console": "internalConsole",
-      "internalConsoleOptions": "openOnSessionStart",
-      "windows": {
-        "useWSL": true,
-        "env": {
-          "USE_DOTENV": "true",
-          "NODE_ENV": "development",
-          "WSLENV": "NODE_ENV:USE_DOTENV"
-        }
-      }
+      "internalConsoleOptions": "openOnSessionStart"
     }
   ]
 }

@@ -1,5 +1,3 @@
-'use strict';
-
 const Generator = require('yeoman-generator');
 const userActions = require('yeoman-generator/lib/actions/user');
 const kebabCase = require('lodash.kebabcase');

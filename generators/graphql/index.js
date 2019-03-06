@@ -1,4 +1,4 @@
-'use strict';
+
 
 const Generator = require('yeoman-generator');
 const getPackageFile = require('./assets/package-file');

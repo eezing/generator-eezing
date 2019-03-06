@@ -1,4 +1,4 @@
-'use strict';
+
 
 const loadGqlFile = require('../../utils').loadGqlFile(__dirname);
 

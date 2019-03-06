@@ -1,5 +1,3 @@
-'use strict';
-
 module.exports = ({ name, description, author }) => ({
   name,
   description,

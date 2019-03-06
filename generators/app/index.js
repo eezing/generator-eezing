@@ -1,5 +1,3 @@
-'use strict';
-
 const Generator = require('yeoman-generator');
 const getPackageFile = require('./assets/package-file');
 const packageExtend = require('../../extensions/package-extend');
@@ -23,5 +21,10 @@ module.exports = class extends Generator {
     this.fs.copy(this.templatePath('.vscode'), this.destinationPath('.vscode'));
 
     this.fs.copy(this.templatePath('src'), this.destinationPath('src'));
+
+    this.fs.copy(
+      this.templatePath('debug.js'),
+      this.destinationPath('debug.js')
+    );
   }
 };

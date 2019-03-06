@@ -1,4 +1,4 @@
-'use strict';
+
 
 const { buildSchema, graphql } = require('graphql');
 const sdl = require('./schema');

@@ -1,7 +1,3 @@
-'use strict';
-
-if (process.env.USE_DOTENV === 'true') require('dotenv').config();
-
 const PORT = process.env.PORT;
 const url = require('url');
 const http = require('http');
@@ -19,6 +15,8 @@ const server = http.createServer((req, res) => {
   }
 });
 
-server.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`); //eslint-disable-line
+const listener = server.listen(PORT, err => {
+  if (err) throw err;
+  //eslint-disable-next-line
+  console.log(`> Ready on http://localhost:${listener.address().port}`);
 });
