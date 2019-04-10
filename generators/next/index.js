@@ -1,5 +1,3 @@
-
-
 const Generator = require('yeoman-generator');
 const getPackageFile = require('./assets/package-file');
 const packageExtend = require('../../extensions/package-extend');
@@ -36,7 +34,7 @@ module.exports = class extends Generator {
   installing() {
     if (this.options['install'] === false) return;
 
-    this.npmInstall(['next@7', 'react@16', 'react-dom@16'], {
+    this.npmInstall(['next@8', 'react@16', 'react-dom@16'], {
       save: true
     });
 
@@ -45,7 +43,7 @@ module.exports = class extends Generator {
         'enzyme',
         'enzyme-adapter-react-16',
         'react-test-renderer',
-        'babel-core@7.0.0-bridge.0',
+        '@babel/core',
         'eslint-plugin-react'
       ],
       {
