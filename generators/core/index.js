@@ -25,8 +25,6 @@ module.exports = class extends Generator {
   writing() {
     this.fs.copy(this.templatePath('.vscode'), this.destinationPath('.vscode'));
 
-    this.fs.copy(this.templatePath('.env'), this.destinationPath('.env'));
-
     this.fs.copy(
       this.templatePath('.gitignore'),
       this.destinationPath('.gitignore')

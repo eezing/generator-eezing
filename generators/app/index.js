@@ -24,5 +24,7 @@ module.exports = class extends Generator {
       this.templatePath('debug.js'),
       this.destinationPath('debug.js')
     );
+
+    this.fs.copy(this.templatePath('.env'), this.destinationPath('.env'));
   }
 };

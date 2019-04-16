@@ -1,8 +1,8 @@
-
-
 const { buildSchema, graphql } = require('graphql');
-const sdl = require('./schema');
 const rootValue = require('./root');
+const sdl = require('./utils/graphql-helpers').LoadSchemaFile(__dirname)(
+  'schema'
+);
 
 const schema = buildSchema(sdl, { commentDescriptions: true });
 

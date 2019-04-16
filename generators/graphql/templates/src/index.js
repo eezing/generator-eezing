@@ -2,6 +2,7 @@ const PORT = process.env.PORT;
 const express = require('express');
 const bodyParser = require('body-parser');
 const graphql = require('./graphql');
+const createLoaders = require('./loaders');
 
 const app = express();
 
@@ -11,22 +12,28 @@ app.use(bodyParser.json());
 
 app.post('/graphql', async (req, res) => {
   try {
-    const context = {};
+    const tenant = {
+      id: '53e7a8b3-9d4e-409c-b831-6a61d092cc37',
+      code: 'nextgen',
+      name: 'Next Generation'
+    };
+
+    const user = {
+      id: 'c871642c-0805-4829-b84d-496f118c39a6',
+      name: 'Luke Skywalker'
+    };
+
+    const context = {
+      tenant,
+      user,
+      loaders: createLoaders(tenant, user)
+    };
 
     const result = await graphql(
       req.body.query,
       req.body.variables,
       req.body.operationName,
       context
-    );
-
-    //eslint-disable-next-line
-    console.dir(
-      {
-        method: req.method,
-        context
-      },
-      { depth: null, colors: true }
     );
 
     res.send(result);

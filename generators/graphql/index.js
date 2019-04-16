@@ -24,13 +24,23 @@ module.exports = class extends Generator {
       this.templatePath('debug.js'),
       this.destinationPath('debug.js')
     );
+
+    this.fs.write(
+      this.destinationPath('.env'),
+      this.fs.read(this.templatePath('.env'))
+    );
+
+    this.fs.copy(this.templatePath('.env'), this.destinationPath('.env'));
   }
 
   installing() {
     if (this.options['install'] === false) return;
 
-    this.npmInstall(['express', 'body-parser', 'graphql'], {
-      save: true
-    });
+    this.npmInstall(
+      ['express', 'body-parser', 'graphql', 'dataloader', 'knex', 'pg', 'uuid'],
+      {
+        save: true
+      }
+    );
   }
 };
