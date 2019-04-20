@@ -8,7 +8,7 @@ const server = http.createServer((req, res) => {
   if (pathname === '/healthz') {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain');
-    res.end('Hello, World!\n');
+    res.end('Hello, World!');
   } else {
     res.statusCode = 404;
     res.end();

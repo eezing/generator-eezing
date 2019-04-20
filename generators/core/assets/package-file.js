@@ -9,7 +9,7 @@ module.exports = ({ name, description, author }) => ({
     pretty: "prettier --write '**/*.js'",
     test: ' npm run test:lint && npm run test:jest',
     'test:watch': 'jest --watch',
-    'test:jest': 'jest --coverage',
+    'test:jest': 'jest',
     'test:lint': 'eslint ./ --ext .js'
   },
   husky: {

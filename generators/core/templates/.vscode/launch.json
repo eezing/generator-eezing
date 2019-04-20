@@ -6,7 +6,8 @@
       "request": "launch",
       "name": "node",
       "runtimeExecutable": "node",
-      "program": "${workspaceFolder}/debug.js",
+      "program": "${workspaceFolder}/index.js",
+      "envFile": "${workspaceFolder}/.env",
       "env": {
         "NODE_ENV": "development"
       },

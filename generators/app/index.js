@@ -18,11 +18,14 @@ module.exports = class extends Generator {
   writing() {
     this.packageExtend(getPackageFile());
 
-    this.fs.copy(this.templatePath('src'), this.destinationPath('src'));
+    this.fs.copy(
+      this.templatePath('index.js'),
+      this.destinationPath('index.js')
+    );
 
     this.fs.copy(
-      this.templatePath('debug.js'),
-      this.destinationPath('debug.js')
+      this.templatePath('__tests__'),
+      this.destinationPath('__tests__')
     );
 
     this.fs.copy(this.templatePath('.env'), this.destinationPath('.env'));
