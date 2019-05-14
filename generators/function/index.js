@@ -21,6 +21,14 @@ module.exports = class extends Generator {
 
     this.fs.copy(this.templatePath('.env'), this.destinationPath('.env'));
 
+    this.fs.copy(this.templatePath('dev.js'), this.destinationPath('dev.js'));
+
     this.fs.copy(this.templatePath('.vscode'), this.destinationPath('.vscode'));
+  }
+
+  installing() {
+    this.npmInstall(['express', 'body-parser'], {
+      'save-dev': true
+    });
   }
 };

@@ -29,6 +29,8 @@ module.exports = class extends Generator {
       this.templatePath('jest.setup.js'),
       this.destinationPath('jest.setup.js')
     );
+
+    this.fs.copy(this.templatePath('.vscode'), this.destinationPath('.vscode'));
   }
 
   installing() {

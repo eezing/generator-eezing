@@ -9,7 +9,6 @@ module.exports = class extends Generator {
   constructor(...args) {
     super(...args);
     this.packageExtend = packageExtend.bind(this);
-    this.option('install', { type: Boolean, default: true });
   }
 
   initializing() {
@@ -43,8 +42,6 @@ module.exports = class extends Generator {
   }
 
   installing() {
-    if (this.options['install'] === false) return;
-
     this.npmInstall(
       [
         'jest',

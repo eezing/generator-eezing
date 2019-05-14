@@ -6,7 +6,6 @@ module.exports = class extends Generator {
   constructor(...args) {
     super(...args);
     this.packageExtend = packageExtend.bind(this);
-    this.option('install', { type: Boolean, default: true });
   }
 
   initializing() {
@@ -26,11 +25,11 @@ module.exports = class extends Generator {
     );
 
     this.fs.copy(this.templatePath('.env'), this.destinationPath('.env'));
+
+    this.fs.copy(this.templatePath('.vscode'), this.destinationPath('.vscode'));
   }
 
   installing() {
-    if (this.options['install'] === false) return;
-
     this.npmInstall(
       ['express', 'body-parser', 'graphql', 'dataloader', 'knex', 'pg', 'uuid'],
       {
