@@ -1,9 +1,5 @@
-const DataLoader = require('dataloader');
-const memberById = require('./memberById');
-const memberCreate = require('./memberCreate');
+const getUser = require('./getUser');
 
-module.exports = (tenant, user) => ({
-  memberById: new DataLoader(ids => memberById({ ids, tenant_id: tenant.id })),
-  memberCreate: member =>
-    memberCreate({ member, tenant_id: tenant.id, created_by: user.id })
+module.exports = user => ({
+  getUser: id => getUser(id, user)
 });

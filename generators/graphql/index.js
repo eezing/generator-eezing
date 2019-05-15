@@ -19,6 +19,8 @@ module.exports = class extends Generator {
 
     this.fs.copy(this.templatePath('src'), this.destinationPath('src'));
 
+    this.fs.copy(this.templatePath('dev.js'), this.destinationPath('dev.js'));
+
     this.fs.write(
       this.destinationPath('.env'),
       this.fs.read(this.templatePath('.env'))
@@ -30,11 +32,12 @@ module.exports = class extends Generator {
   }
 
   installing() {
-    this.npmInstall(
-      ['express', 'body-parser', 'graphql', 'dataloader', 'knex', 'pg', 'uuid'],
-      {
-        save: true
-      }
-    );
+    this.npmInstall(['express', 'body-parser'], {
+      'save-dev': true
+    });
+
+    this.npmInstall(['graphql', 'graphql-tools'], {
+      save: true
+    });
   }
 };

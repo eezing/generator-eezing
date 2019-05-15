@@ -1,0 +1,4 @@
+type Query {
+  # Get user details. Default is session user.
+  user(id: ID): User
+}

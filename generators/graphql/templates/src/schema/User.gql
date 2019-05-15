@@ -1,0 +1,5 @@
+type User {
+  id: String!
+  tenant_id: String!
+  name: String!
+}
