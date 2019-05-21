@@ -9,6 +9,7 @@
       "program": "${workspaceFolder}/dev.js",
       "envFile": "${workspaceFolder}/.env",
       "env": {
+        "PORT": "3000",
         "NODE_ENV": "development"
       },
       "console": "internalConsole",
