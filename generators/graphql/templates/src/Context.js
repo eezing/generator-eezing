@@ -1,3 +1,5 @@
+'use strict';
+
 const createLoaders = require('./loaders');
 
 class Context {

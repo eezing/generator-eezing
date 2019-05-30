@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = ({ name, description, author }) => ({
   name,
   description,
@@ -29,11 +31,14 @@ module.exports = ({ name, description, author }) => ({
       node: true,
       jest: true
     },
-    parser: 'babel-eslint',
+    parserOptions: {
+      ecmaVersion: 2018
+    },
     plugins: ['prettier'],
     extends: ['eslint:recommended', 'prettier'],
     rules: {
-      'no-console': 2
+      'no-console': 2,
+      strict: [2, 'global']
     }
   },
   eslintIgnore: ['coverage', '*.min.js'],

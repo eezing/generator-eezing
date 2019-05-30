@@ -1,5 +1,12 @@
-const getUser = require('./getUser');
+'use strict';
 
-module.exports = user => ({
-  getUser: id => getUser(id, user)
+const userGet = require('./userGet');
+
+/**
+ * Loader object for request.
+ * @param {Object} user - Session user object.
+ * @returns {Object} Request loader object.
+ */
+module.exports = () => ({
+  userGet
 });

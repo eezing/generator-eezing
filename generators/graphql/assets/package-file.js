@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = () => ({
   main: 'src/index.js',
   scripts: {

@@ -1,5 +1,3 @@
-
-
 module.exports = () => ({
   scripts: {
     start: 'next start',

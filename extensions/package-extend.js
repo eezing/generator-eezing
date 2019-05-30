@@ -1,4 +1,4 @@
-
+'use strict';
 
 const deepExtend = require('deep-extend');
 

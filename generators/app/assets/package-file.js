@@ -1,6 +1,8 @@
+'use strict';
+
 module.exports = () => ({
   main: 'src/index.js',
   scripts: {
-    dev: 'NODE_ENV=development nodemon -r dotenv/config src/index.js'
+    dev: 'PORT=3000 NODE_ENV=development nodemon -r dotenv/config dev.js'
   }
 });

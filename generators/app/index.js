@@ -1,3 +1,5 @@
+'use strict';
+
 const Generator = require('yeoman-generator');
 const getPackageFile = require('./assets/package-file');
 const packageExtend = require('../../extensions/package-extend');
@@ -21,6 +23,14 @@ module.exports = class extends Generator {
 
     this.fs.copy(this.templatePath('.env'), this.destinationPath('.env'));
 
+    this.fs.copy(this.templatePath('dev.js'), this.destinationPath('dev.js'));
+
     this.fs.copy(this.templatePath('.vscode'), this.destinationPath('.vscode'));
+  }
+
+  installing() {
+    this.npmInstall(['express', 'body-parser'], {
+      'save-dev': true
+    });
   }
 };

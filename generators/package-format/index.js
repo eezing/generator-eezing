@@ -1,4 +1,4 @@
-
+'use strict';
 
 const Generator = require('yeoman-generator');
 const packageExtend = require('../../extensions/package-extend');

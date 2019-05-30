@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * Get user details.
  * @param {String} id - Requested user id.

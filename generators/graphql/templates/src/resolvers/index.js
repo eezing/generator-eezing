@@ -1,8 +1,10 @@
+'use strict';
+
 const { withResolverErrorHandler } = require('../utils/graphql-helpers');
-const user = require('./user');
 
 const Query = withResolverErrorHandler({
-  user
+  user: (parent, args, ctx) =>
+    ctx.loaders.userGet(args.id || ctx.user_id, ctx.user)
 });
 
 module.exports = { Query };

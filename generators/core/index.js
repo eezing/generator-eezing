@@ -1,3 +1,5 @@
+'use strict';
+
 const Generator = require('yeoman-generator');
 const userActions = require('yeoman-generator/lib/actions/user');
 const kebabCase = require('lodash.kebabcase');
@@ -48,8 +50,6 @@ module.exports = class extends Generator {
         'eslint',
         'eslint-plugin-prettier',
         'eslint-config-prettier',
-        'babel-eslint',
-        'babel-jest',
         'dotenv',
         'husky'
       ],
