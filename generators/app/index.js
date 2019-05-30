@@ -29,7 +29,7 @@ module.exports = class extends Generator {
   }
 
   installing() {
-    this.npmInstall(['express', 'body-parser'], {
+    this.npmInstall(['express', 'body-parser', 'morgan'], {
       'save-dev': true
     });
   }

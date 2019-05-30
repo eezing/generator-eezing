@@ -3,6 +3,7 @@
 const PORT = process.env.PORT;
 
 const express = require('express');
+const morgan = require('morgan');
 const jsonBodyParser = require('body-parser').json;
 const Context = require('./src/Context');
 const graphql = require('./src');
@@ -11,6 +12,8 @@ const graphiql = require('./src/utils/graphiql');
 const app = express();
 
 app.use(jsonBodyParser());
+
+app.use(morgan('dev'));
 
 app.use((req, res, next) => {
   console.log(`${req.method} ${req.headers.host}${req.path}`); //eslint-disable-line
